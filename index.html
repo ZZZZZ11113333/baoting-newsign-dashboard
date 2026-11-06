@@ -1,0 +1,830 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>保亭 · 新签商户经营总览 · 2026-11</title>
+<style>
+:root{
+  --brand:#f2621b;--brand-2:#ff8a3d;--brand-dk:#c2410c;--brand-soft:#fff2e8;
+  --bg:#fbf7f3;--panel:#fff;--ink:#241f1b;--ink-2:#6f6459;--muted:#9a8d81;
+  --line:#f1e5da;--line-2:#f7eee6;
+  --ok:#12855a;--ok-soft:#e7f7ef;--warn:#c47b00;--warn-soft:#fff4e0;
+  --bad:#d8452c;--bad-soft:#fdeae6;--purple:#7c4ddb;--purple-soft:#f3ecff;
+  --blue:#2563eb;--blue-soft:#eaf1ff;--teal:#0f766e;--teal-soft:#e6f6f4;
+  --gold:#a8761a;--gold-soft:#fdf3dd;
+  --r:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.6;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Segoe UI",sans-serif}
+.wrap{max-width:1280px;margin:0 auto;padding:0 26px}
+.num,.mono{font-family:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- hero ---------- */
+.hero{background:linear-gradient(135deg,#f97316 0%,#ea580c 48%,#9a3412 100%);color:#fff;padding:26px 0 22px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-90px;top:-120px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.10)}
+.hero::after{content:"";position:absolute;left:-60px;bottom:-160px;width:320px;height:320px;border-radius:50%;background:rgba(255,255,255,.07)}
+.hero .wrap{position:relative;z-index:1}
+.hero-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{display:flex;gap:14px;align-items:center}
+.logo{width:46px;height:46px;border-radius:13px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+  display:grid;place-items:center;font-size:21px;font-weight:800;letter-spacing:1px;backdrop-filter:blur(2px)}
+.hero h1{margin:0;font-size:23px;letter-spacing:.5px;font-weight:750}
+.hero-sub{font-size:12.5px;opacity:.88;margin-top:3px}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap;padding-top:4px}
+.htag{font-size:11.5px;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.26);white-space:nowrap}
+
+/* ---------- tabs ---------- */
+.tabbar{position:sticky;top:0;z-index:30;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);box-shadow:0 2px 10px rgba(150,90,40,.05)}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{padding:13px 15px;font-size:13px;font-weight:600;color:var(--ink-2);cursor:pointer;
+  border-bottom:3px solid transparent;white-space:nowrap;transition:color .15s,border-color .15s}
+.tab:hover{color:var(--brand-dk)}
+.tab.on{color:var(--brand);border-color:var(--brand)}
+
+main{padding:22px 0 30px}
+section{display:none}
+section.on{display:block;animation:fade .22s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* ---------- cards ---------- */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;margin-bottom:16px;
+  box-shadow:0 1px 3px rgba(120,60,20,.04)}
+.card-h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;margin-bottom:4px}
+.card-h h2{font-size:15px;margin:0;display:flex;align-items:center;gap:8px;letter-spacing:.2px}
+.card-h h2::before{content:"";width:3px;height:14px;border-radius:2px;background:var(--brand);display:inline-block}
+.card-h .badge{font-size:11px;color:var(--ink-2);background:#f8efe7;border-radius:999px;padding:1px 9px}
+.desc{font-size:12px;color:var(--muted);margin:2px 0 14px;line-height:1.7}
+.desc b{color:var(--ink-2)}
+.grid2{display:grid;grid-template-columns:1.12fr .88fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stack{display:grid;gap:16px}
+
+/* ---------- kpi ---------- */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(172px,1fr));gap:12px;margin-bottom:16px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px 16px 13px;position:relative;overflow:hidden}
+.kpi::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--brand)}
+.kpi .lbl{font-size:11.5px;color:var(--ink-2)}
+.kpi .val{font-size:28px;font-weight:800;line-height:1.15;margin:2px 0 1px;letter-spacing:-.5px}
+.kpi .sub{font-size:11px;color:var(--muted);line-height:1.5}
+.kpi .val small{font-size:13px;font-weight:600;color:var(--ink-2);margin-left:2px}
+.k-gold::before{background:var(--gold)}.k-gold .val{color:var(--gold)}
+.k-ok::before{background:var(--ok)}.k-ok .val{color:var(--ok)}
+.k-warn::before{background:var(--warn)}.k-warn .val{color:var(--warn)}
+.k-bad::before{background:var(--bad)}.k-bad .val{color:var(--bad)}
+.k-pur::before{background:var(--purple)}.k-pur .val{color:var(--purple)}
+.k-blue::before{background:var(--blue)}.k-blue .val{color:var(--blue)}
+.k-teal::before{background:var(--teal)}.k-teal .val{color:var(--teal)}
+.k-idle::before{background:#b0a49a}.k-idle .val{color:#8c8076}
+
+/* ---------- bars ---------- */
+.bar-row{display:grid;grid-template-columns:140px 1fr 74px;gap:10px;align-items:center;margin:7px 0;font-size:12.5px}
+.bar-row.wide{grid-template-columns:186px 1fr 74px}
+.bar-row .nm{color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-row .nm em{font-style:normal;color:var(--muted);font-size:11px;margin-left:4px}
+.track{height:9px;border-radius:6px;background:#f7ece3;overflow:hidden;position:relative}
+.track.sm{height:6px;border-radius:4px}
+.fill{height:100%;border-radius:6px;background:linear-gradient(90deg,#ffb078,#f2621b);transition:width .45s ease}
+.fill.ok{background:linear-gradient(90deg,#4fd39a,#12855a)}
+.fill.warn{background:linear-gradient(90deg,#ffcb5c,#c47b00)}
+.fill.bad{background:linear-gradient(90deg,#ff9a83,#d8452c)}
+.fill.pur{background:linear-gradient(90deg,#b998ff,#7c4ddb)}
+.fill.blue{background:linear-gradient(90deg,#7ba9ff,#2563eb)}
+.fill.teal{background:linear-gradient(90deg,#5fd3c8,#0f766e)}
+.fill.idle{background:linear-gradient(90deg,#cfc5bb,#a1968b)}
+.bar-row .val{text-align:right;font-size:12px;font-weight:600;color:var(--ink)}
+.bar-row .val.mut{color:var(--muted);font-weight:400}
+
+/* ---------- funnel ---------- */
+.funnel{display:grid;gap:9px;margin-top:6px}
+.fn{display:grid;grid-template-columns:104px 1fr 96px;gap:11px;align-items:center;font-size:12.5px}
+.fn .fnl{color:var(--ink-2)}
+.fn .fnt{height:32px;border-radius:8px;background:#f9f0e8;overflow:hidden}
+.fn .fnf{height:100%;border-radius:8px;display:flex;align-items:center;padding-left:10px;color:#fff;font-weight:700;font-size:12.5px;
+  background:linear-gradient(90deg,#ffb078,#f2621b);min-width:34px;transition:width .5s ease}
+.fn .fnf.ok{background:linear-gradient(90deg,#4fd39a,#12855a)}
+.fn .fnf.warn{background:linear-gradient(90deg,#ffcb5c,#c47b00)}
+.fn .fnf.idle{background:linear-gradient(90deg,#d3c8be,#a3968a)}
+.fn .fnr{text-align:right;font-size:11.5px;color:var(--muted)}
+
+/* ---------- donut ---------- */
+.donut-wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:6px}
+.donut{width:132px;height:132px;border-radius:50%;position:relative;flex:0 0 auto;
+  background:conic-gradient(#f2621b 0 var(--a,#14%),#f6d9c4 var(--a,#14%) 100%)}
+.donut::after{content:"";position:absolute;inset:15px;border-radius:50%;background:#fff}
+.donut-c{position:absolute;inset:0;display:grid;place-items:center;text-align:center;z-index:1}
+.donut-c b{font-size:24px;font-family:ui-monospace,Consolas,monospace;line-height:1}
+.donut-c span{font-size:10.5px;color:var(--muted)}
+.legend{display:grid;gap:9px;flex:1;min-width:170px}
+.lg{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-2)}
+.lg i{width:9px;height:9px;border-radius:3px;background:#f2621b;flex:0 0 auto}
+.lg i.mut{background:#f6d9c4}
+.lg b{margin-left:auto;color:var(--ink);font-family:ui-monospace,Consolas,monospace}
+
+/* ---------- chips / pills ---------- */
+.chip{display:inline-block;padding:1px 8px;border-radius:999px;font-size:11px;background:#f8f0e9;color:#8b7261;white-space:nowrap}
+.chip.fml{background:var(--brand-soft);color:#b8490f}
+.chip.gka{background:var(--purple-soft);color:#6534c0}
+.chip.nrcka{background:var(--blue-soft);color:#1d4ed8}
+.chip.nroth{background:var(--teal-soft);color:#0b625b}
+.chip.warn{background:var(--warn-soft);color:#9a5f00}
+.pill{display:inline-block;padding:1px 9px;border-radius:999px;font-size:11px;font-weight:600;white-space:nowrap}
+.p-great{background:var(--ok-soft);color:#0d6b48}
+.p-good{background:var(--blue-soft);color:#1d4ed8}
+.p-mid{background:var(--gold-soft);color:#8a5f0d}
+.p-zero{background:var(--bad-soft);color:#b23a22}
+.p-idle{background:#f2eeea;color:#8a7f75}
+.p-this{background:var(--brand-soft);color:#b8490f}
+.sub{font-size:10.5px;color:var(--muted);line-height:1.5;margin-top:2px}
+.sub-in{font-size:11px;color:var(--ink-2)}
+.pos{color:var(--ok)}
+.neg{color:var(--bad)}
+.urgent{color:var(--bad);font-weight:700}
+.mut{color:var(--muted)}
+
+/* ---------- tables ---------- */
+.tbl-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;-webkit-overflow-scrolling:touch}
+table.tbl{width:100%;border-collapse:collapse;font-size:12.5px;min-width:100%}
+table.tbl th{background:#fdf6f0;color:var(--ink-2);font-weight:600;text-align:left;padding:9px 11px;white-space:nowrap;
+  position:sticky;top:0;z-index:2}
+table.tbl th.sortable{cursor:pointer;user-select:none}
+table.tbl th.sortable:hover{color:var(--brand)}
+table.tbl th .arr{font-size:9px;color:var(--brand);margin-left:2px}
+table.tbl td{padding:9px 11px;border-top:1px solid var(--line-2);vertical-align:middle;white-space:nowrap}
+table.tbl td:first-child{white-space:normal;min-width:150px}
+table.tbl.wide{min-width:1240px}
+table.tbl tbody tr:hover td{background:#fffaf5}
+table.tbl td.num{text-align:right;font-family:ui-monospace,Consolas,monospace;white-space:nowrap}
+table.tbl tr.sum td{background:var(--gold-soft);font-weight:700}
+table.tbl tr.hi td{background:#fff6ec}
+.mini{display:grid;gap:3px;min-width:130px}
+.mini .mrow{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--ink-2)}
+.mini .mrow span{width:86px;white-space:nowrap;font-family:ui-monospace,Consolas,monospace}
+.mini .track{flex:1}
+.dots{display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.dot{font-size:10px;padding:1px 6px;border-radius:6px;background:#f4efea;color:#9a8d81}
+.dot.ok{background:var(--ok-soft);color:#0d6b48}
+.dot.no{background:#f8f0e9;color:#a99c90}
+
+/* ---------- filters ---------- */
+.filters{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.filters input,.filters select{padding:7px 11px;border:1px solid var(--line);border-radius:9px;font-size:12.5px;background:#fff;color:var(--ink);
+  font-family:inherit;outline:none}
+.filters input{min-width:210px}
+.filters input:focus,.filters select:focus{border-color:#f5ab80;box-shadow:0 0 0 3px #fdeee3}
+.filters .cnt{font-size:12px;color:var(--muted);margin-left:auto}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.seg button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:12px;color:var(--ink-2);
+  cursor:pointer;font-family:inherit;transition:.15s}
+.seg button:hover{border-color:#f5ab80}
+.seg button.on{background:var(--brand);border-color:var(--brand);color:#fff;font-weight:600}
+
+/* ---------- rank cards ---------- */
+.rank-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(228px,1fr));gap:12px}
+.rank{background:linear-gradient(165deg,#fff 0%,#fffaf6 100%);border:1px solid var(--line);border-radius:14px;padding:14px 15px}
+.rank .top{display:flex;align-items:center;gap:8px}
+.rank .medal{font-size:17px;line-height:1}
+.rank .nm{font-size:15px;font-weight:750}
+.rank .score{font-size:24px;font-weight:800;font-family:ui-monospace,Consolas,monospace;color:var(--brand-dk);margin:6px 0 0}
+.rank .score small{font-size:11px;color:var(--muted);font-weight:500;font-family:inherit;margin-left:4px}
+.rank .meta{display:flex;gap:12px;font-size:11.5px;color:var(--ink-2);margin-top:6px;flex-wrap:wrap}
+.rank .meta b{color:var(--ink);font-family:ui-monospace,Consolas,monospace}
+
+/* ---------- misc ---------- */
+.note{background:#fdf7f2;border-left:3px solid var(--brand);border-radius:8px;padding:10px 13px;font-size:12px;color:var(--ink-2);line-height:1.8;margin-top:12px}
+.note.warn{border-color:var(--bad);background:#fdf1ee}
+.note.ok{border-color:var(--ok);background:#f0faf5}
+.note.gold{border-color:var(--gold);background:#fdf8ec}
+.note b{color:var(--ink)}
+.todo{display:grid;gap:8px}
+.todo-i{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border-radius:10px;background:#fdf9f5;border:1px solid var(--line-2);font-size:12.5px}
+.todo-i .tag{flex:0 0 auto;font-size:10.5px;padding:1px 8px;border-radius:999px;font-weight:700;margin-top:1px}
+.tag.bad{background:var(--bad-soft);color:#b23a22}
+.tag.warn{background:var(--warn-soft);color:#9a5f00}
+.tag.info{background:var(--blue-soft);color:#1d4ed8}
+.tag.ok{background:var(--ok-soft);color:#0d6b48}
+.todo-i .t{color:var(--ink)}
+.todo-i .t em{font-style:normal;color:var(--muted);font-size:11px;margin-left:6px}
+.mini-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.mini-box{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fffdfb}
+.mini-box .lbl{font-size:11px;color:var(--muted)}
+.mini-box .v{font-size:20px;font-weight:800;font-family:ui-monospace,Consolas,monospace;margin:2px 0}
+.mini-box .s{font-size:10.5px;color:var(--muted);line-height:1.5}
+.mini-box.danger .v{color:var(--bad)}
+.mini-box.ok .v{color:var(--ok)}
+.mini-box.gold .v{color:var(--gold)}
+.mini-box.pur .v{color:var(--purple)}
+.mini-box.blue .v{color:var(--blue)}
+.bl-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.bl-card{border:1px solid var(--line);border-radius:12px;padding:12px 13px;background:#fffdfb}
+.bl-card .hd{display:flex;align-items:baseline;gap:6px;margin-bottom:2px}
+.bl-card .hd b{font-size:13.5px;color:var(--ink)}
+.bl-card .hd span{font-size:10.5px;color:var(--muted)}
+.bl-card .n{font-size:11px;color:var(--muted);margin-bottom:7px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.sf{background:#fffdfb;border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:11px;color:var(--muted);min-width:92px}
+.sf b{display:block;font-size:15px;color:var(--brand-dk);font-family:ui-monospace,Consolas,monospace;margin-top:1px}
+footer{padding:20px 0 34px;color:#a89a8d;font-size:11.5px;text-align:center;line-height:1.9;border-top:1px solid var(--line)}
+.kv{display:grid;grid-template-columns:96px 1fr;gap:6px 12px;font-size:12.5px;color:var(--ink-2)}
+.kv b{color:var(--ink)}
+.rules p{margin:0 0 8px;font-size:12.5px;color:var(--ink-2);line-height:1.8}
+.rules p b{color:var(--ink)}
+.legend-row{display:flex;gap:14px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);margin-top:10px}
+
+@media (max-width:1024px){
+  .grid2,.grid3{grid-template-columns:1fr}
+  .hero h1{font-size:20px}
+}
+@media (max-width:720px){
+  .wrap{padding:0 14px}
+  main{padding:16px 0 24px}
+  .hero{padding:18px 0 16px}
+  .hero h1{font-size:18px}
+  .logo{width:38px;height:38px;font-size:17px;border-radius:11px}
+  .hero-tags{display:none}
+  .card{padding:14px 14px;border-radius:14px}
+  .kpi .val{font-size:24px}
+  .kpis{grid-template-columns:repeat(2,1fr);gap:10px}
+  .bar-row{grid-template-columns:92px 1fr 58px;gap:8px;font-size:11.5px}
+  .fn{grid-template-columns:76px 1fr 74px;gap:8px;font-size:11.5px}
+  .fn .fnt{height:28px}
+  .fn .fnf{font-size:11.5px;padding-left:7px}
+  .hide-sm{display:none}
+  table.tbl{font-size:11.5px}
+  table.tbl th,table.tbl td{padding:7px 8px}
+  .filters input{min-width:130px;flex:1}
+  .donut{width:112px;height:112px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-row">
+      <div class="brand">
+        <div class="logo">保</div>
+        <div>
+          <h1>保亭 · 新签商户经营总览</h1>
+          <div class="hero-sub">11 月新签考核 × BD 绩效 × 综合指标 × 营销 KPI　·　城市分层「反超」　·　渠道经理 何世祥</div>
+        </div>
+      </div>
+      <div class="hero-tags">
+        <span class="htag">数据日 2026-11-05</span>
+        <span class="htag" id="hMer">商户 20 家</span>
+        <span class="htag" id="hPool">入考核池 15 家</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="tabbar"><div class="wrap"><nav class="tabs" id="tabs"></nav></div></div>
+
+<main><div class="wrap" id="app"></div></main>
+
+<footer>
+  数据来源：新签考核明细（日 20261105）· 新签登记表 · 26年11月BD考核方案 · 11月综合指标看板 · 11月爆单红包考核进度（五城）<br>
+  本页为单文件离线看板，配色与图表均为本地渲染，无需联网 · 生成于 2026-11-07
+</footer>
+
+<script>
+/* ===== 商户明细：id,名称,品类,业务线,BD,审核,剩余,截止,入池,餐饮有单,养活,养好,零售有单,零售高价值,本月加权,上月加权,单量,净G,笔单价,营业h,养活目标单,养好目标G,流量卡,餐饮任务4,零售任务4,商机等级,状态,板块,来源,老店新开 ===== */
+const MERCHANTS=[[1366988050,"新派寿司","寿司/手卷","FML","裴友健","10.26",20,"11.25",1,1,1,0,0,0,1.5,0.0,38,769.1,20.2,61.7,20,5000,1,[1,0,0,0],null,"P3","养活","本月加权","餐饮",0],[547080789,"鄰里手打柠檬茶(保小店)","奶茶果汁","FML","裴友健","10.10",4,"11.09",1,1,1,1,0,0,0.0,1.0,3532,29690.3,8.4,335.3,20,5000,1,[1,0,0,0],null,"P3","养好","上月加权","餐饮",0],[546983446,"食味馆（盖浇饭·炒饭·炒粉店）","盖浇饭","FML","陈春芳","10.10",4,"11.09",1,1,1,1,0,0,0.0,1.0,385,9068.0,23.6,217.5,20,5000,1,[1,0,0,0],null,"P3","养好","上月加权","餐饮",0],[1362512059,"杨记鲜卤·烤鸭","卤味小吃","FML","张捷","10.05","已过考核周期","11.04",1,1,1,1,0,0,0.0,1.0,314,7271.2,23.2,313.3,20,4100,1,[1,0,0,0],null,"P2","养好","上月加权","餐饮",0],[546952170,"三加一美蛙食店","蛙类火锅","FML","张捷","10.07",1,"11.06",1,1,1,1,0,0,0.0,1.0,70,5523.1,78.9,174.3,20,5000,1,[1,0,0,0],null,"P3","养好","上月加权","餐饮",0],[546859390,"万客来餐馆","川菜","FML","彭意聪","10.01","已过考核周期","10.31",0,0,0,0,0,0,0.0,1.0,30,971.0,32.4,212.0,20,2250,1,[1,0,0,0],null,"P2","非考核池","上月加权","餐饮",0],[1364153863,"观山茶","奶茶果汁","FML","彭意聪","10.02","已过考核周期","11.01",1,1,1,0,0,0,0.0,1.0,29,633.0,21.8,277.1,20,5000,1,[1,0,0,0],null,"P3","养活","上月加权","餐饮",0],[1367013914,"芒果奇迹成人情趣馆(保亭2761店)","成人用品","NRCKA","黄敏","10.26",20,"11.25",1,0,0,0,1,0,0.0,1.0,12,612.1,51.0,182.0,null,null,0,null,[[581.5714,20],[24,10],[null,null],[null,null]],"P3","零售有单","上月加权","直营小二新签",0],[1364960853,"老彭炒货店","休闲零食","NROTH","黄敏","10.05","已过考核周期","11.04",1,0,0,0,1,0,0.0,1.0,29,577.0,19.9,354.7,null,null,0,null,[[24.5714,50],[12.5167,10],[1,1],[7,1]],"P3","零售有单","上月加权","自主入驻",0],[545916627,"百悦生活超市","便利店","NROTH","黄敏","10.06",0,"11.05",1,0,0,0,1,0,0.0,1.0,8,263.5,32.9,338.1,null,null,0,null,[[254,500],[12.0167,12],[2,1],[7,1]],"P3","零售有单","上月加权","代理团队新签",0],[1359464588,"张亮麻辣烫(保亭市场店)","麻辣烫","GKA","未匹配","11.02",27,"12.02",0,0,0,0,0,0,0.0,0.0,14,435.4,31.1,22.8,20,5000,0,[1,0,0,0],null,"P2","非考核池","非考核池","餐饮",0],[1367571493,"糟粕醋粉店","其他小吃","FML","陈春芳","10.25",19,"11.24",1,0,0,0,0,0,0.0,0.0,4,108.7,27.2,66.0,20,4100,0,[0,0,0,0],null,"P2","待破零","待加权","餐饮",0],[1369584876,"銮姐粉汤店","盖浇饭","FML","彭意聪","11.04",29,"12.04",1,0,0,0,0,0,0.0,0.0,0,0.0,0.0,0.1,20,5000,0,[0,0,0,0],null,"P3","待破零","待加权","餐饮",0],[1368925930,"芒果奇迹健康馆(保亭2761店)","保健用具","NRCKA","未匹配","11.02",27,"12.02",0,0,0,0,0,0,0.0,0.0,0,0.0,0.0,81.5,null,null,0,null,[[618.5,20],[11.6429,10],[null,null],[null,null]],"P3","非考核池","非考核池","直营小二新签",0],[1368787864,"爽迹成人情趣健康馆(保亭店)","保健用具","NRCKA","未匹配","11.03",28,"12.03",0,0,0,0,0,0,0.0,0.0,0,0.0,0.0,12.6,null,null,0,null,[[null,null],[null,null],[null,null],[null,null]],"P3","非考核池","非考核池","直营小二新签",0],[1368059726,"威特迪","数码仓","NROTH","黄敏","11.04",29,"12.04",1,0,0,0,0,0,0.0,0.0,0,0.0,0.0,0.0,null,null,0,null,[[null,null],[null,null],[null,null],[null,null]],"P3","待破零","待加权","代理团队新签",0],[1367039709,"配送猿水站(保亭店)","水站","NRCKA","未匹配","10.20",14,"11.19",0,0,0,0,0,0,0.0,0.0,0,0.0,0.0,0.0,null,null,0,null,[[null,null],[null,null],[null,null],[null,null]],"P3","非考核池","非考核池","直营小二新签",0],[1366744481,"康师傅水饮官方闪购店(保亭县新民路店发货站)","标超","NRCKA","黄敏","10.21",15,"11.20",0,0,0,0,0,0,0.0,0.0,0,0.0,0.0,288.3,null,null,0,null,[[14,1000],[24,11],[1,1],[7,1]],"P3","非考核池","非考核池","直营小二新签",0],[1366455148,"椰鲜生水果批发","水果店","NROTH","黄敏","11.03",28,"12.03",1,0,0,0,0,0,0.0,0.0,0,0.0,0.0,18.1,null,null,0,null,[[10,50],[2.5833,12],[2,1],[3,1]],"P3","待破零","待加权","代理团队新签",0],[547644110,"温泉鹅味馆·原鱼与蛙(原鱼与蛙)","卤味小吃","FML","张捷","11.03",28,"12.03",1,0,0,0,0,0,0.0,0.0,0,0.0,0.0,0.0,null,null,0,[0,0,0,0],null,"P2","待破零","待加权","餐饮",0]];
+
+const BDPERF=[
+ {n:'黄敏',line:'零售',score:0.5493,newShop:3,bonus:150,items:[
+  {p:'净 GMV',w:30,tgt:216533,cur:156591.54,rate:72.3,sc:0.1446},
+  {p:'零售地区经营订单数',w:20,tgt:7500,cur:6841,rate:91.2,sc:0.1824},
+  {p:'优质团长',w:10,tgt:null,cur:null,rate:null,sc:null},
+  {p:'爆好价订单',w:10,tgt:1800,cur:1300,rate:72.2,sc:0.0722},
+  {p:'新店有单',w:20,tgt:4,cur:3,rate:75.0,sc:0.15}]},
+ {n:'张捷',line:'餐饮',score:null,newShop:2,bonus:100,items:[
+  {p:'日均免配订单渗透率',w:15,tgt:0.7,cur:0.675,rate:96.4,sc:0.1446},
+  {p:'超抢手一口价有效商户覆盖',w:15,tgt:0.9,cur:null,rate:null,sc:null},
+  {p:'A2+A5 TOP4 超抢手品订单渗透',w:20,tgt:6000,cur:270,rate:4.5,sc:0.24},
+  {p:'策略商户有效覆盖+SG报名',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'超抢手拉单',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'Y4-2 红包加码',w:10,tgt:0.5,cur:841,rate:66.7,sc:0.12},
+  {p:'新签有单',w:20,tgt:3,cur:null,rate:0,sc:0}]},
+ {n:'陈春芳',line:'餐饮',score:null,newShop:3,bonus:150,items:[
+  {p:'日均免配订单渗透率',w:15,tgt:0.7,cur:0.643,rate:91.8,sc:0.1378},
+  {p:'超抢手一口价有效商户覆盖',w:15,tgt:0.9,cur:null,rate:null,sc:null},
+  {p:'A2+A5 TOP4 超抢手品订单渗透',w:20,tgt:6000,cur:177,rate:2.9,sc:0.0059},
+  {p:'策略商户有效覆盖+SG报名',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'超抢手拉单',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'Y4-2 红包加码',w:10,tgt:0.5,cur:744,rate:71.5,sc:0.12},
+  {p:'新签有单',w:20,tgt:3,cur:1.5,rate:50.0,sc:0.1}]},
+ {n:'裴友健',line:'餐饮',score:null,newShop:2,bonus:100,items:[
+  {p:'日均免配订单渗透率',w:15,tgt:0.7,cur:0.646,rate:92.2,sc:0.1384},
+  {p:'超抢手一口价有效商户覆盖',w:15,tgt:0.9,cur:null,rate:null,sc:null},
+  {p:'A2+A5 TOP4 超抢手品订单渗透',w:20,tgt:6000,cur:122,rate:2.0,sc:0.0041},
+  {p:'策略商户有效覆盖+SG报名',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'超抢手拉单',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'Y4-2 红包加码',w:10,tgt:0.5,cur:468,rate:66.9,sc:0.12},
+  {p:'新签有单',w:20,tgt:3,cur:null,rate:0,sc:0}]},
+ {n:'彭意聪',line:'餐饮',score:null,newShop:2,bonus:100,items:[
+  {p:'日均免配订单渗透率',w:15,tgt:0.7,cur:0.594,rate:84.9,sc:0.1273},
+  {p:'超抢手一口价有效商户覆盖',w:15,tgt:0.9,cur:null,rate:null,sc:null},
+  {p:'A2+A5 TOP4 超抢手品订单渗透',w:20,tgt:6000,cur:136,rate:2.3,sc:0.0045},
+  {p:'策略商户有效覆盖+SG报名',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'超抢手拉单',w:10,tgt:100,cur:0,rate:0,sc:0},
+  {p:'Y4-2 红包加码',w:10,tgt:0.5,cur:322,rate:39.5,sc:0.079},
+  {p:'新签有单',w:20,tgt:3,cur:null,rate:0,sc:0}]}
+];
+
+const NEWSHOP=[['张捷',2.5,3,1],['陈春芳',2.5,2,2],['彭意聪',2.5,2,2],['裴友健',2.5,0,0],['黄敏',4,3,0],['保亭餐饮',10,7,5],['保亭零售',4,3,0]];
+
+const METRIC_COLS=[
+ ['ord','订单达成'],['qps','去拼团去超抢手订单'],['cs','超抢手订单'],['pt','拼团订单'],['ls','零售订单'],
+ ['qpsR','去拼去超渗透率',1],['csR','超抢手渗透率',1],['ptR','拼团渗透率',1],['mfR','免配渗透率',1],
+ ['fml','FML 订单'],['cka','CKA 订单'],['tn','TN 订单'],['ka','KA 订单'],
+ ['brandR','品牌订单渗透率',1],['fmlR','FML 订单渗透率',1],['mg','在管商户数'],['bizR','营业率',1]
+];
+const METRIC_ROWS=[
+ ['张捷',4281,1160,1165,1956,null,27.1,27.2,45.7,70.0,3410,114,0,757,20.3,79.7,114,81.3],
+ ['裴友健',3724,1367,577,1780,null,36.7,15.5,47.8,72.8,2565,191,45,923,31.1,68.9,86.7,86.2],
+ ['陈春芳',4320,1775,832,1713,null,41.1,19.3,39.7,49.1,2417,81,358,1464,44.1,55.9,102.7,88.0],
+ ['彭意聪',2658,1176,577,905,null,44.2,21.7,34.0,61.9,2010,310,53,285,24.4,75.6,105,91.1],
+ ['黄敏',1103,null,null,null,1103,null,null,null,62.3,0,0,0,0,0,0,0,null],
+ ['保亭',16086,6581,3151,6354,1103,40.9,19.6,39.5,null,10402,696,456,3429,28.5,64.7,408.3,86.5]
+];
+const UPFLIP={tgt:39,hq:104,hqDone:9,hqScore:9.7,self:46,selfDone:2,selfScore:2,rate:30.0,gap:-27.3};
+
+const MKT=[
+ {n:'阶梯爆涨',scope:'FML+品牌',cur:76.8,tgt:73.0,rate:105.2,gap:37.8,dx:992,bm:762},
+ {n:'爆单红包',scope:'FML',cur:89.2,tgt:92.0,rate:96.9,gap:-26.4,dx:932,bm:831},
+ {n:'周末夜宵券',scope:'FML+品牌',cur:64.1,tgt:43.0,rate:149.1,gap:209.4,dx:992,bm:636},
+ {n:'Y4-2 加码',scope:'FML',cur:54.7,tgt:45.0,rate:121.5,gap:68.4,dx:708,bm:387}
+];
+const MKTBD=[
+ ['张捷',[86.6,118.7,36.6],[94.9,103.2,7.4],[78.8,183.3,96.3],[67.3,149.5,49.6]],
+ ['彭意聪',[69.4,95.1,-9.9],[82.6,89.8,-23.2],[47.5,110.4,12.5],[32.7,72.7,-19.9]],
+ ['陈春芳',[82.4,112.9,22.5],[96.9,105.4,11.3],[72.8,169.3,71.2],[57.7,128.2,23.9]],
+ ['裴友健',[67.5,92.4,-11.4],[81.1,88.1,-21.9],[57.3,133.2,29.4],[56.0,124.4,14.7]]
+];
+const CITY=[
+ ['东方',5957,91.4,73.0,35.4,43.0],
+ ['保亭黎族苗族自治县',5960,92.0,73.0,45.0,43.0],
+ ['定安',5965,92.0,73.0,35.0,35.0],
+ ['昌江黎族自治县',5967,91.0,73.0,35.4,36.0],
+ ['琼中黎族苗族自治县',5968,92.0,73.0,44.9,38.4]
+];
+const RECON={miss:['茶方','柚屹鲜厨馆','永成笼仔饭'],diff:['万客来餐馆','杨记鲜卤·烤鸭'],ok:['观山茶','老彭炒货店','百悦生活超市'],noreg:15};
+(function(){
+'use strict';
+
+/* ---------- 字段映射与工具 ---------- */
+const MF=['id','name','cat','bl','bd','ap','days','dl','assess','has','live','good','rhas','rval','cur','last','ord','gmv','aov','hrs','tord','tgmv','card','cyt','rt','tier','st','bucket','src','reopen'];
+const M=MERCHANTS.map(a=>{const o={};MF.forEach((k,i)=>o[k]=a[i]);return o;});
+const nf=v=>v==null?'—':Number(v).toLocaleString('zh-CN');
+const fx=(v,d=1)=>v==null?'—':Number(v).toFixed(d);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const CAT={FML:'餐饮',GKA:'餐饮',CKA:'餐饮',NRCKA:'零售',NROTH:'零售'};
+const BLCLS={FML:'fml',GKA:'gka',NRCKA:'nrcka',NROTH:'nroth'};
+const SCLS={'养好':'p-great','零售高价值':'p-great','养活':'p-good','零售有单':'p-good','有单':'p-mid','待破零':'p-zero','非考核池':'p-idle'};
+const BLABEL={'本月加权':'① 本月加权','待加权':'② 待加权','上月加权':'③ 上月已加权','非考核池':'④ 非考核池'};
+const score=m=>(m.cur||0)+(m.last||0);
+const hasOrder=m=>(m.has||m.rhas)?1:0;
+const dnum=m=>typeof m.days==='number'?m.days:999;
+const daysText=m=>typeof m.days==='number'?m.days+' 天':'已过期';
+
+/* ---------- 汇总 ---------- */
+const BDS=['黄敏','张捷','陈春芳','裴友健','彭意聪','未匹配'];
+const bdAgg=BDS.map(bd=>{
+  const l=M.filter(m=>m.bd===bd);
+  return {bd,n:l.length,score:+l.reduce((s,m)=>s+score(m),0).toFixed(2),has:l.filter(hasOrder).length,live:l.filter(m=>m.live).length,good:l.filter(m=>m.good).length};
+}).sort((a,b)=>b.score-a.score);
+const BLS=['FML','GKA','NRCKA','NROTH'];
+const blAgg=BLS.map(bl=>{
+  const l=M.filter(m=>m.bl===bl);
+  return {bl,n:l.length,has:l.filter(hasOrder).length,live:l.filter(m=>m.live).length,good:l.filter(m=>m.good).length,score:+l.reduce((s,m)=>s+score(m),0).toFixed(2)};
+});
+const BK=['本月加权','待加权','上月加权','非考核池'];
+const bkAgg=BK.map(k=>{
+  const l=M.filter(m=>m.bucket===k);
+  return {k,n:l.length,score:+l.reduce((s,m)=>s+score(m),0).toFixed(2),has:l.filter(hasOrder).length,live:l.filter(m=>m.live).length,good:l.filter(m=>m.good).length};
+});
+const totalScore=+M.reduce((s,m)=>s+score(m),0).toFixed(2);
+const curScore=+M.reduce((s,m)=>s+(m.cur||0),0).toFixed(2);
+const lastScore=+M.reduce((s,m)=>s+(m.last||0),0).toFixed(2);
+const inPool=M.filter(m=>m.bucket!=='非考核池').length;
+const gotN=M.filter(hasOrder).length;
+
+/* ---------- 组件 ---------- */
+function kpi(lbl,val,unit,sub,tone){
+  return '<div class="kpi '+(tone||'')+'"><div class="lbl">'+lbl+'</div><div class="val">'+val+(unit?'<small>'+unit+'</small>':'')+'</div><div class="sub">'+sub+'</div></div>';
+}
+function bar(name,valTxt,rate,tone,note){
+  const w=rate==null?0:Math.max(1.5,Math.min(100,rate*100));
+  return '<div class="bar-row"><div class="nm">'+name+(note?'<em>'+note+'</em>':'')+'</div>'+
+    '<div class="track"><div class="fill '+(tone||'')+'" style="width:'+w+'%"></div></div>'+
+    '<div class="val'+(rate==null?' mut':'')+'">'+valTxt+'</div></div>';
+}
+function miniBar(label,val,total,tone){
+  const w=total?Math.min(100,val/total*100):0;
+  return '<div class="mrow"><span>'+label+'</span><div class="track sm"><div class="fill '+(tone||'')+'" style="width:'+Math.max(2,w)+'%"></div></div></div>';
+}
+function blChip(bl){return '<span class="chip '+(BLCLS[bl]||'')+'">'+bl+'</span>';}
+function progHTML(m){
+  if(m.rt){
+    const L=['在售','时长','活动','免基配'];
+    let done=0;
+    const dots=m.rt.map((t,i)=>{
+      const ok=t&&t[0]!=null&&t[1]!=null&&Number(t[0])>=Number(t[1]);
+      if(ok)done++;
+      const txt=t&&t[0]!=null?(L[i]+' '+(+t[0]).toFixed(0)+'/'+t[1]):(L[i]+' —');
+      return '<span class="dot '+(ok?'ok':'no')+'">'+(ok?'✓ ':'· ')+txt+'</span>';
+    }).join('');
+    return '<div class="dots">'+dots+'</div><div class="sub">新店任务 '+done+'/4 完成</div>';
+  }
+  const or=m.tord?Math.min(100,m.ord/m.tord*100):0;
+  const gr=m.tgmv?Math.min(100,m.gmv/m.tgmv*100):0;
+  return '<div class="mini">'+
+    '<div class="mrow"><span>单 '+m.ord+'/'+(m.tord||'—')+'</span><div class="track sm"><div class="fill '+(m.ord>=m.tord?'ok':m.ord>0?'warn':'idle')+'" style="width:'+or+'%"></div></div></div>'+
+    '<div class="mrow"><span>G '+nf(m.gmv)+'/'+(m.tgmv?nf(m.tgmv):'—')+'</span><div class="track sm"><div class="fill '+(m.gmv>=m.tgmv?'ok':m.gmv>0?'warn':'idle')+'" style="width:'+gr+'%"></div></div></div>'+
+    '</div>';
+}
+function hintTags(m){
+  const a=[];
+  if(typeof m.days==='number'&&m.days<=4)a.push(['bad','剩 '+m.days+' 天']);
+  if(!m.assess)a.push(['warn','未入池']);
+  else if(!hasOrder(m))a.push(['bad','待破零']);
+  else if(m.tord&&m.ord<m.tord)a.push(['info','差 '+(m.tord-m.ord)+' 单']);
+  if(m.tgmv&&m.gmv<m.tgmv&&m.live)a.push(['info','净G 差 '+nf(Math.round(m.tgmv-m.gmv))]);
+  if(m.hrs!=null&&m.hrs<42&&m.assess)a.push(['warn','营业 '+fx(m.hrs)+'h']);
+  return a.slice(0,3).map(t=>'<span class="chip '+(t[0]==='bad'?'warn':'')+'">'+t[1]+'</span>').join(' ');
+}
+
+/* ---------- 状态 ---------- */
+const ST={tab:'overview',f:{q:'',bd:'',bl:'',bucket:''},sort:{k:'score',dir:-1},metric:'ord',bdPerf:'黄敏'};
+const TABS=[['overview','总览'],['merchants','商户进度'],['bd','BD 绩效'],['metrics','综合指标'],['mkt','营销 KPI'],['rules','口径规则']];
+
+/* ---------- 视图：总览 ---------- */
+const views={};
+views.overview=function(){
+  const thisN=M.filter(m=>m.bucket==='本月加权').length;
+  const waitN=M.filter(m=>m.bucket==='待加权').length;
+  const lastN=M.filter(m=>m.bucket==='上月加权').length;
+  const otherN=M.filter(m=>m.bucket==='非考核池').length;
+  const fn=[['商户总数',M.length,'idle'],['入考核池',inPool,''],['有单 / 零售有单',gotN,'warn'],['养活',M.filter(m=>m.live).length,''],['养好',M.filter(m=>m.good).length,'ok']];
+  const maxScore=Math.max.apply(null,bdAgg.map(b=>b.score));
+  const donutPct=totalScore?(curScore/totalScore*100):0;
+  return '<section id="overview" class="on">'+
+  '<div class="kpis">'+
+    kpi('商户总数',M.length,'家','入考核池 '+inPool+' · 非考核池 '+(M.length-inPool),'k-blue')+
+    kpi('本月加权',thisN,'家','合计 '+fx(curScore,2)+' 分','k-gold')+
+    kpi('待加权',waitN,'家','本月可挣分主力池','k-warn')+
+    kpi('上月已加权',lastN,'家','合计 '+fx(lastScore,2)+' 分 · 不重复累计','k-pur')+
+    kpi('非考核池',otherN,'家','未匹配 BD / 已过期未破零','k-idle')+
+    kpi('登记台账',8,'条','一致 3 · 差异 2 · 未入池 3','k-teal')+
+  '</div>'+
+  '<div class="grid2">'+
+    '<div class="card"><div class="card-h"><h2>考核漏斗</h2><span class="badge">'+M.length+' 家 → '+M.filter(m=>m.good).length+' 家养好</span></div>'+
+      '<div class="desc">每层为该状态累计家数；右侧为相对上一层的留存率。</div><div class="funnel">'+
+      fn.map((r,i)=>{
+        const w=Math.max(16,r[1]/M.length*100);
+        const keep=i===0?null:(fn[i-1][1]?r[1]/fn[i-1][1]*100:0);
+        return '<div class="fn"><div class="fnl">'+r[0]+'</div><div class="fnt"><div class="fnf '+r[2]+'" style="width:'+w+'%">'+r[1]+'</div></div>'+
+          '<div class="fnr">'+(keep==null?'基准':fx(keep)+'% 留存')+'</div></div>';
+      }).join('')+'</div>'+
+      '<div class="note">本月新增加权仅 '+thisN+' 家（+'+fx(curScore,2)+' 分）；上月批次 '+lastN+' 家合计 '+fx(lastScore,2)+' 分，按规则不重复计分，只有升级到更高档才可补差。</div></div>'+
+    '<div class="card"><div class="card-h"><h2>加权得分构成</h2><span class="badge">合计 '+fx(totalScore,2)+' 分</span></div>'+
+      '<div class="desc">本月 / 上月两个批次对总分的贡献。</div>'+
+      '<div class="donut-wrap"><div class="donut" style="--a:'+fx(donutPct,1)+'%"><div class="donut-c"><div><b>'+fx(totalScore,2)+'</b><br><span>总加权分</span></div></div></div>'+
+      '<div class="legend"><div class="lg"><i></i>本月加权 <b>'+fx(curScore,2)+' · '+thisN+' 家</b></div><div class="lg"><i class="mut"></i>上月已加权 <b>'+fx(lastScore,2)+' · '+lastN+' 家</b></div>'+
+      '<div class="lg" style="border-top:1px dashed var(--line);padding-top:8px">户均得分 <b>'+fx(totalScore/M.length,2)+'</b></div>'+
+      '<div class="lg">入池户均 <b>'+fx(totalScore/inPool,2)+'</b></div></div></div>'+
+      '<div class="note gold">本月加权占 <b>'+fx(donutPct)+'%</b>，存量贡献为主；剩余 25 天需把 5 家待破零拉起来才能改善结构。</div></div>'+
+  '</div>'+
+  '<div class="grid2">'+
+    '<div class="card"><div class="card-h"><h2>BD 加权得分排行</h2><span class="badge">'+bdAgg.length+' 个归属</span></div>'+
+      '<div class="desc">条长 = 得分 / 最高分（'+fx(maxScore,2)+'）。含商户数与状态构成。</div>'+
+      bdAgg.map(b=>bar(b.bd,b.score.toFixed(2)+' 分',maxScore?b.score/maxScore:0,b.bd==='未匹配'?'idle':'',b.n+' 家 · 养好 '+b.good)).join('')+
+    '</div>'+
+    '<div class="card"><div class="card-h"><h2>业务线达标分布</h2><span class="badge">4 条业务线</span></div>'+
+      '<div class="desc">条长 = 该状态家数 / 业务线商户数。</div><div class="bl-grid">'+
+      blAgg.map(x=>'<div class="bl-card"><div class="hd"><b>'+x.bl+'</b><span>'+CAT[x.bl]+'</span></div><div class="n">'+x.n+' 家 · 得分 '+fx(x.score,2)+'</div><div class="mini">'+
+        miniBar('有单 '+x.has,x.has,x.n,'warn')+miniBar('养活 '+x.live,x.live,x.n,'')+miniBar('养好 '+x.good,x.good,x.n,'ok')+'</div></div>').join('')+
+      '</div><div class="note">FML 是绝对主力（'+blAgg[0].n+' 家 / '+fx(blAgg[0].score,2)+' 分）；GKA 仅 1 家且为未匹配状态，零售侧 9 家仅 '+blAgg.slice(2).reduce((s,x)=>s+x.has,0)+' 家有单。</div></div>'+
+  '</div>'+
+  '<div class="card"><div class="card-h"><h2>风险与待办</h2><span class="badge">按紧急度排序</span></div>'+
+    '<div class="todo">'+
+    '<div class="todo-i"><span class="tag bad">需指派</span><span class="t">4 家未匹配 BD：张亮麻辣烫（GKA）、芒果奇迹健康馆、爽迹成人情趣健康馆、配送猿水站 <em>未匹配则 is_assess=0，不计考核</em></span></div>'+
+    '<div class="todo-i"><span class="tag warn">今日截止</span><span class="t">百悦生活超市（11-05 截止，剩 0 天，零售有单 1.00 分）<em>确认当月是否已入绩效</em></span></div>'+
+    '<div class="todo-i"><span class="tag warn">临期</span><span class="t">三加一美蛙食店（11-06，剩 1 天，已养好）· 鄰里手打柠檬茶 / 食味馆（剩 4 天，已养好）<em>窗口内无升级空间即可归档</em></span></div>'+
+    '<div class="todo-i"><span class="tag info">待破零</span><span class="t">5 家：糟粕醋粉店（4 单 / 剩 19 天）、椰鲜生水果批发、温泉鹅味馆、銮姐粉汤店、威特迪 <em>其中 3 家 0 单，需拉免基配 / 爆好价</em></span></div>'+
+    '<div class="todo-i"><span class="tag info">升级机会</span><span class="t">新派寿司：净G 769 / 5,000，距「养好」差 4,231 <em>当前仅养活 1.50 分</em></span></div>'+
+    '<div class="todo-i"><span class="tag warn">任务未闭环</span><span class="t">7 家仅完成「新店基础任务」，小试牛刀 / 蒸蒸日上 / 经营有方 均未完成 <em>影响后续流量与加权档位</em></span></div>'+
+    '</div></div>'+
+  '<div class="card"><div class="card-h"><h2>登记台账 × 系统核对</h2><span class="badge">登记 8 条</span></div>'+
+    '<div class="mini-grid">'+
+    '<div class="mini-box ok"><div class="lbl">完全一致</div><div class="v">3</div><div class="s">'+RECON.ok.join(' · ')+'</div></div>'+
+    '<div class="mini-box gold"><div class="lbl">字段差异</div><div class="v">2</div><div class="s">'+RECON.diff.join(' · ')+'<br>均为日期差 1 天</div></div>'+
+    '<div class="mini-box danger"><div class="lbl">系统未查到</div><div class="v">3</div><div class="s">'+RECON.miss.join(' · ')+'</div></div>'+
+    '<div class="mini-box blue"><div class="lbl">系统有 · 登记无</div><div class="v">15</div><div class="s">建议补登，尤其 11 月新签</div></div>'+
+    '<div class="mini-box pur"><div class="lbl">未匹配 BD</div><div class="v">4</div><div class="s">需 CM 手工指定归属</div></div>'+
+    '</div>'+
+    '<div class="note warn">登记有、系统无的 3 家请逐条排查：① 是否 9 月签已过 30 天窗口 ② 是否审核未通过 ③ 是否 BD 记错。系统有、登记无的 15 家建议按 11 月批次补登。</div></div>'+
+  '</section>';
+};
+
+/* ---------- 视图：商户进度 ---------- */
+function filtered(){
+  const f=ST.f;
+  const list=M.filter(m=>{
+    if(f.bucket&&m.bucket!==f.bucket)return false;
+    if(f.bd&&m.bd!==f.bd)return false;
+    if(f.bl&&m.bl!==f.bl)return false;
+    if(f.q){
+      const t=(m.name+' '+m.cat+' '+m.bd+' '+m.bl+' '+m.id).toLowerCase();
+      if(t.indexOf(f.q.toLowerCase())<0)return false;
+    }
+    return true;
+  });
+  const k=ST.sort.k,dir=ST.sort.dir;
+  const val=m=>k==='score'?score(m):(k==='days'?dnum(m):m[k]);
+  list.sort((a,b)=>{
+    const av=val(a),bv=val(b);
+    if(typeof av==='number'&&typeof bv==='number')return (av-bv)*dir;
+    return String(av).localeCompare(String(bv),'zh')*dir;
+  });
+  return list;
+}
+function merchantRow(m){
+  return '<tr>'+
+    '<td><b>'+esc(m.name)+'</b><div class="sub">'+esc(m.cat)+' · '+m.tier+' · 审 '+m.ap+'</div></td>'+
+    '<td class="hide-sm">'+blChip(m.bl)+'<div class="sub">'+CAT[m.bl]+'</div></td>'+
+    '<td>'+(m.bd==='未匹配'?'<span class="chip warn">未匹配</span>':esc(m.bd))+'</td>'+
+    '<td><span class="pill '+(SCLS[m.st]||'p-idle')+'">'+m.st+'</span><div class="sub">'+BLABEL[m.bucket]+'</div></td>'+
+    '<td class="'+(typeof m.days==='number'&&m.days<=4?'urgent':'')+'">'+daysText(m)+'<div class="sub">至 '+m.dl+'</div></td>'+
+    '<td>'+progHTML(m)+'</td>'+
+    '<td class="num">'+(m.cur?'<b class="pos">+'+fx(m.cur,2)+'</b>':'0.00')+'</td>'+
+    '<td class="num">'+(m.last?fx(m.last,2):'0.00')+'</td>'+
+    '<td>'+hintTags(m)+'</td>'+
+    '</tr>';
+}
+views.merchants=function(){
+  const segs=[['','全部 '+M.length]].concat(BK.map(k=>[k,k+' '+M.filter(m=>m.bucket===k).length]));
+  return '<section id="merchants" class="on"><div class="card">'+
+   '<div class="card-h"><h2>商户考核进度</h2><span class="badge" id="mCount">'+M.length+' 家</span></div>'+
+   '<div class="desc">餐饮进度 = 单量 / 养活目标 与 净G / 养好目标；零售进度 = 4 项新店任务（在售商品数 / 日均营业时长 / 专享活动数 / 免基配天数）。点击表头可排序。</div>'+
+   '<div class="seg" id="mSeg">'+segs.map(s=>'<button data-b="'+s[0]+'" class="'+(ST.f.bucket===s[0]?'on':'')+'">'+s[1]+'</button>').join('')+'</div>'+
+   '<div class="filters">'+
+     '<input id="fq" placeholder="搜索商户 / BD / 品类 / ID" value="'+esc(ST.f.q)+'">'+
+     '<select id="fbd"><option value="">全部 BD</option>'+BDS.map(b=>'<option value="'+b+'"'+(ST.f.bd===b?' selected':'')+'>'+b+'</option>').join('')+'</select>'+
+     '<select id="fbl"><option value="">全部业务线</option>'+BLS.map(b=>'<option value="'+b+'"'+(ST.f.bl===b?' selected':'')+'>'+b+'（'+CAT[b]+'）</option>').join('')+'</select>'+
+     '<span class="cnt" id="mCount2"></span></div>'+
+   '<div class="tbl-wrap"><table class="tbl" id="mTable"><thead><tr>'+
+     '<th class="sortable" data-k="name">商户<span class="arr"></span></th>'+
+     '<th class="hide-sm">业务线</th>'+
+     '<th class="sortable" data-k="bd">BD<span class="arr"></span></th>'+
+     '<th>状态 / 板块</th>'+
+     '<th class="sortable" data-k="days">剩余<span class="arr"></span></th>'+
+     '<th class="sortable" data-k="ord">考核进度<span class="arr"></span></th>'+
+     '<th class="sortable" data-k="cur">本月<span class="arr"></span></th>'+
+     '<th class="sortable" data-k="last">上月<span class="arr"></span></th>'+
+     '<th>提示</th></tr></thead><tbody id="mBody"></tbody></table></div>'+
+   '<div class="legend-row"><span>状态：养好 &gt; 养活 &gt; 有单 &gt; 待破零</span><span>零售：高价值 &gt; 有单 &gt; 待破零</span><span>非考核池不计分</span></div>'+
+   '</div></section>';
+};
+
+/* ---------- 视图：BD 绩效 ---------- */
+function perfBody(){
+  const p=BDPERF.filter(x=>x.n===ST.bdPerf)[0]||BDPERF[0];
+  const a=bdAgg.filter(x=>x.bd===p.n)[0]||{n:0,score:0};
+  return '<div style="display:flex;gap:26px;flex-wrap:wrap;margin:2px 0 14px">'+
+    '<div><div class="sub">绩效得分</div><div class="mono" style="font-size:22px;font-weight:800;color:var(--brand-dk)">'+(p.score==null?'—':fx(p.score,4))+'</div></div>'+
+    '<div><div class="sub">新店达标</div><div class="mono" style="font-size:22px;font-weight:800">'+p.newShop+' 家</div></div>'+
+    '<div><div class="sub">奖励金</div><div class="mono" style="font-size:22px;font-weight:800">¥'+p.bonus+'</div></div>'+
+    '<div><div class="sub">归属商户 / 新签得分</div><div class="mono" style="font-size:22px;font-weight:800">'+a.n+' / '+fx(a.score,2)+'</div></div></div>'+
+    p.items.map(it=>{
+      const tone=it.rate==null?'idle':it.rate>=100?'ok':it.rate>=90?'warn':'bad';
+      const w=it.rate==null?2:Math.max(2,Math.min(100,it.rate));
+      const f=v=>v==null?'—':(Number(v)>=1000?nf(Math.round(v)):fx(v,3));
+      return '<div class="bar-row wide"><div class="nm">'+it.p+'<em>权重 '+it.w+'%</em></div>'+
+        '<div class="track"><div class="fill '+tone+'" style="width:'+w+'%"></div></div>'+
+        '<div class="val'+(it.rate==null?' mut':'')+'">'+(it.rate==null?'未取数':fx(it.rate)+'%')+'</div></div>'+
+        '<div class="sub" style="margin:-3px 0 9px">目标 '+f(it.tgt)+' · 当前 '+f(it.cur)+' · 得分 <b>'+(it.sc==null?'—':fx(it.sc,4))+'</b></div>';
+    }).join('');
+}
+views.bd=function(){
+  const medals=['🥇','🥈','🥉','4','5'];
+  return '<section id="bd" class="on">'+
+  '<div class="card"><div class="card-h"><h2>BD 绩效排名</h2><span class="badge">5 位 BD · 奖励合计 ¥600</span></div>'+
+    '<div class="desc">数据源《26年11月BD考核方案》· 餐饮 4 位 + 零售 1 位 · 时间进度 9/1 · 项目完成率封顶 120%</div>'+
+    '<div class="rank-grid">'+BDPERF.map((p,i)=>{
+      const a=bdAgg.filter(x=>x.bd===p.n)[0]||{n:0,score:0};
+      return '<div class="rank"><div class="top"><span class="medal">'+medals[i]+'</span><span class="nm">'+p.n+'</span><span class="chip '+(p.line==='零售'?'nrcka':'fml')+'">'+p.line+'</span></div>'+
+        '<div class="score">'+(p.score==null?'—':fx(p.score,4))+(p.score!=null?'<small>绩效得分</small>':'<small>综合分未出</small>')+'</div>'+
+        '<div class="meta"><span>新店达标 <b>'+p.newShop+'</b></span><span>奖励 <b>¥'+p.bonus+'</b></span></div>'+
+        '<div class="meta"><span>商户 <b>'+a.n+'</b></span><span>新签得分 <b>'+fx(a.score,2)+'</b></span><span>养好 <b>'+a.good+'</b></span></div>'+
+        '<div style="margin-top:8px">'+bar('绩效达成',p.score==null?'—':fx(p.score*100,1)+'%',p.score||0,'','')+'</div></div>';
+    }).join('')+'</div>'+
+    '<div class="note gold">黄敏是唯一已出综合分（0.5493）的 BD，零售侧净 GMV 72% / 订单 91% 拉高得分；餐饮 4 位 BD 因「超抢手一口价覆盖」未回填，综合分为「—」。</div></div>'+
+  '<div class="card"><div class="card-h"><h2>新签目标达成</h2><span class="badge">餐饮目标 10 · 零售目标 4</span></div>'+
+    '<div class="desc">达成率 = 当月达标 / 新签目标；差值为达标数 − 目标。</div>'+
+    '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>BD / 口径</th><th>目标</th><th>上线</th><th>达标</th><th>达成率</th><th>差值</th></tr></thead><tbody>'+
+    NEWSHOP.map(r=>{
+      const rate=r[1]?r[3]/r[1]*100:0, gap=r[3]-r[1];
+      const tone=rate>=100?'ok':rate>=60?'warn':'bad';
+      return '<tr'+(r[0].indexOf('保亭')===0?' class="sum"':'')+'><td><b>'+r[0]+'</b></td><td class="num">'+fx(r[1])+'</td><td class="num">'+r[2]+'</td><td class="num">'+r[3]+'</td>'+
+        '<td><div style="display:flex;align-items:center;gap:8px;min-width:120px"><div class="track sm" style="flex:1"><div class="fill '+tone+'" style="width:'+Math.min(100,rate)+'%"></div></div><span class="mono" style="font-size:11px">'+fx(rate)+'%</span></div></td>'+
+        '<td class="num '+(gap<0?'neg':'pos')+'">'+(gap>0?'+':'')+fx(gap)+'</td></tr>';
+    }).join('')+'</tbody></table></div>'+
+    '<div class="note warn">餐饮累计上线 7 / 目标 10，达标 5；零售上线 3 / 目标 4，达标 0 —— 新签质量是本月最大缺口（黄敏 3 家上线 0 家达标）。</div></div>'+
+  '<div class="card"><div class="card-h"><h2>考核项目达成明细</h2><span class="badge">权重 × 达成率</span></div>'+
+    '<div class="desc">条长 = 达成率；&lt;90% 得分 ×0.8，&lt;80% 得分归零，封顶 120%。</div>'+
+    '<div class="seg" id="bdSeg">'+BDPERF.map(p=>'<button data-n="'+p.n+'" class="'+(p.n===ST.bdPerf?'on':'')+'">'+p.n+' · '+p.line+'</button>').join('')+'</div>'+
+    '<div id="bdPerfBody">'+perfBody()+'</div></div>'+
+  '<div class="card"><div class="card-h"><h2>执行力加减分</h2><span class="badge">14 项扣分 · 4 项加分</span></div>'+
+    '<div class="kv"><b>扣分高频</b><span>任务延误 / 未展开 5 分 ·单次；日常指标达成率 &lt;90% 5 分；数据错误 10 分（累犯加倍）；落后活动 / 营业 / 商品 / 服务包 5 分</span>'+
+    '<b>加分项</b><span>新签商家 20 日前有单达成 100% +5 分；破独 100-300 / 300-500 / 800+ → +2 / +4 / +5 分；过程指标 &gt;110% +5 分</span>'+
+    '<b>红线</b><span>BD 虚假有单反扣分；投诉核实无误 5 分 / 次</span></div></div>'+
+  '</section>';
+};
+
+/* ---------- 视图：综合指标 ---------- */
+const MR=METRIC_ROWS.map(r=>{const o={nm:r[0]};METRIC_COLS.forEach((c,i)=>o[c[0]]=r[i+1]);return o;});
+function metricChart(){
+  const col=METRIC_COLS.filter(c=>c[0]===ST.metric)[0];
+  const isRate=!!col[2];
+  const bdRows=MR.filter(r=>r.nm!=='保亭');
+  const max=isRate?100:Math.max.apply(null,bdRows.map(r=>r[col[0]]||0));
+  return bdRows.map(r=>{
+    const v=r[col[0]];
+    const txt=v==null?'—':(isRate?v+'%':nf(v));
+    return bar(r.nm,txt,v==null?null:(v/max),v==null?'idle':'',isRate?'':'占保亭合计 '+fx(v/ (MR[5][col[0]]||1)*100)+'%');
+  }).join('');
+}
+views.metrics=function(){
+  return '<section id="metrics" class="on">'+
+  '<div class="kpis">'+
+    kpi('订单达成',nf(16086),'单','保亭合计','k-blue')+
+    kpi('去拼去超渗透',40.9,'%','保亭合计','k-ok')+
+    kpi('拼团订单渗透',39.5,'%','保亭合计','k-gold')+
+    kpi('超抢手渗透',19.6,'%','保亭合计','k-warn')+
+    kpi('零售订单渗透',6.9,'%','保亭合计','k-teal')+
+    kpi('在管商户数',408.3,'','BD 合计','k-pur')+
+  '</div>'+
+  '<div class="card"><div class="card-h"><h2>BD 核心指标对比</h2><span class="badge">5 位 BD</span></div>'+
+    '<div class="desc">选择指标查看 BD 横向对比；比率型指标以 100% 为满刻度，订单型以最高 BD 为满刻度。</div>'+
+    '<div class="filters"><select id="mSel">'+METRIC_COLS.map(c=>'<option value="'+c[0]+'"'+(ST.metric===c[0]?' selected':'')+'>'+c[1]+'</option>').join('')+'</select>'+
+    '<span class="cnt">数据日 2026-11-04 · 源《11月综合指标看板》</span></div>'+
+    '<div id="mChart">'+metricChart()+'</div>'+
+    '<div class="note">张捷订单量最高（4,281），陈春芳去拼去超渗透 41.1% 与品牌渗透 44.1% 双高；黄敏为纯零售，零售订单 1,103 单，其余餐饮指标不适用。</div></div>'+
+  '<div class="card"><div class="card-h"><h2>全指标明细</h2><span class="badge">17 项</span></div>'+
+    '<div class="tbl-wrap"><table class="tbl wide"><thead><tr><th>BD</th>'+METRIC_COLS.map(c=>'<th>'+c[1]+'</th>').join('')+'</tr></thead><tbody>'+
+    MR.map(r=>'<tr'+(r.nm==='保亭'?' class="sum"':'')+'><td><b>'+r.nm+'</b></td>'+METRIC_COLS.map(c=>{
+      const v=r[c[0]];
+      return '<td class="num">'+(v==null?'—':(c[2]?v+'%':(c[0]==='mg'?v:nf(v))))+'</td>';
+    }).join('')+'</tr>').join('')+'</tbody></table></div></div>'+
+  '<div class="card"><div class="card-h"><h2>超抢手总部品上翻</h2><span class="badge">保亭</span></div>'+
+    '<div class="desc">目标 '+UPFLIP.tgt+' 个 · 上翻率 '+fx(UPFLIP.rate)+'% · 差值 '+fx(UPFLIP.gap)+'</div>'+
+    '<div class="chips">'+[['目标',UPFLIP.tgt],['总部下发',UPFLIP.hq],['下发已报',UPFLIP.hqDone],['加权得分',UPFLIP.hqScore],['自主提报',UPFLIP.self],['自主已报',UPFLIP.selfDone],['自主加权',UPFLIP.selfScore],['品上翻率',UPFLIP.rate+'%'],['差值',UPFLIP.gap]].map(x=>'<div class="sf">'+x[0]+'<b>'+x[1]+'</b></div>').join('')+'</div>'+
+    '<div class="note warn">总部下发已报仅 '+UPFLIP.hqDone+' / '+UPFLIP.hq+'（8.7%），是上翻率只有 30% 的主因；自主提报已报 '+UPFLIP.selfDone+' / '+UPFLIP.self+'。</div></div>'+
+  '</section>';
+};
+
+/* ---------- 视图：营销 KPI ---------- */
+views.mkt=function(){
+  const tone=r=>r>=100?'ok':r>=90?'warn':'bad';
+  return '<section id="mkt" class="on">'+
+  '<div class="card"><div class="card-h"><h2>4 大营销 KPI</h2><span class="badge">月维度 · 保亭</span></div>'+
+    '<div class="desc">数据源《11月爆单红包考核进度-五城》· 目标口径：FML 剔除仅自配送 / 高校 / 乡镇；品牌不剔除。</div>'+
+    '<div class="kpis">'+MKT.map(k=>kpi(k.n,k.cur,'%','目标 '+fx(k.tgt)+'% · 完成率 '+fx(k.rate)+'%',k.rate>=100?'k-ok':k.rate>=90?'k-warn':'k-bad')).join('')+'</div>'+
+    MKT.map(k=>'<div class="bar-row"><div class="nm">'+k.n+'<em>'+k.scope+'</em></div>'+
+      '<div class="track"><div class="fill '+tone(k.rate)+'" style="width:'+Math.min(100,k.rate)+'%"></div></div>'+
+      '<div class="val">'+fx(k.rate)+'%</div></div>'+
+      '<div class="sub" style="margin:-3px 0 9px">完成 '+fx(k.cur)+'% / 目标 '+fx(k.tgt)+'% · 差值 '+(k.gap>0?'+':'')+fx(k.gap)+' · 动销 '+k.dx+' · 报名 '+k.bm+'</div>').join('')+
+    '<div class="note gold"><b>11月商户侧考核方向</b>：稳定爆单资产水位 → 过渡阶梯爆涨；提升中高笔单占比 → Y 加码；周末夜宵大额券渗透 → 结合营销节奏。考核项①爆单 ≥90%×0.9 / ≥95%×1.0 / ≥100%×1.05，上限 120；②③④ 达成 110% ×1.2。招商风险比 ≥1.5%（投诉 / 报名）→ ① 归零。</div></div>'+
+  '<div class="card"><div class="card-h"><h2>BD × KPI 矩阵</h2><span class="badge">4 位餐饮 BD</span></div>'+
+    '<div class="desc">上层为该 BD 实绩，下层为完成率与目标差值。</div>'+
+    '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>BD</th>'+MKT.map(k=>'<th>'+k.n+'<div class="sub">目标 '+fx(k.tgt)+'%</div></th>').join('')+'</tr></thead><tbody>'+
+    MKTBD.map(r=>'<tr><td><b>'+r[0]+'</b><div class="sub">保亭</div></td>'+r.slice(1).map(v=>{
+      return '<td><div class="mono" style="font-size:11.5px">'+fx(v[0])+'% · <b class="'+(v[1]>=100?'pos':'neg')+'">'+fx(v[1])+'%</b></div>'+
+        '<div class="track sm" style="margin:3px 0"><div class="fill '+tone(v[1])+'" style="width:'+Math.min(100,v[1])+'%"></div></div>'+
+        '<div class="sub">差 '+(v[2]>0?'+':'')+fx(v[2])+'</div></td>';
+    }).join('')+'</tr>').join('')+'</tbody></table></div>'+
+    '<div class="note">张捷、陈春芳 4 项全部达标；彭意聪与裴友健在「爆单红包」与「Y4-2 加码」低于 90%，是本月扣分风险点。</div></div>'+
+  '<div class="card"><div class="card-h"><h2>5 城目标对照</h2><span class="badge">保亭 Y4-2 目标最高</span></div>'+
+    '<div class="desc">保亭 Y4-2 目标 45%，明显高于定安 / 东方（35%~35.4%），同等实绩下完成率更低。</div>'+
+    '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>区县</th><th>区县 id</th><th>爆单红包</th><th>阶梯爆涨</th><th>Y4-2 加码</th><th>周末&amp;夜宵券</th></tr></thead><tbody>'+
+    CITY.map(c=>'<tr'+(c[0].indexOf('保亭')===0?' class="hi"':'')+'><td><b>'+c[0]+'</b></td><td class="num">'+c[1]+'</td>'+c.slice(2).map(v=>'<td class="num">'+fx(v)+'%</td>').join('')+'</tr>').join('')+'</tbody></table></div></div>'+
+  '</section>';
+};
+
+/* ---------- 视图：规则 ---------- */
+views.rules=function(){
+  return '<section id="rules" class="on">'+
+  '<div class="card"><div class="card-h"><h2>板块口径</h2></div><div class="rules">'+
+    '<p><b>① 本月加权</b>：本月加权系数 &gt; 0，首次达「有单 / 养活 / 养好 / 零售高价值」并已计入绩效。</p>'+
+    '<p><b>② 待加权</b>：在考核池、未过期、本月加权 = 0、上月未加权 —— 本月能挣分的主力。</p>'+
+    '<p><b>③ 上月已加权</b>：上月加权系数 &gt; 0；按「取高值不重复累计」，本月原则上不计，除非升级到更高档。</p>'+
+    '<p><b>④ 非考核池</b>：既未入考核池（is_assess = 0）、也无历史加权（未匹配 BD / 特殊渠道）。已在本月或上月加权的商户，即使 is_assess = 0 仍归入对应加权板块。</p>'+
+    '<p><b>状态</b>：待破零（无有效单）→ 有单（审核通过 30 天内笔单价 &gt; 5 元订单 ≥ 7 单且累计营业 ≥ 42 小时）→ 养活（订单达目标）→ 养好（净 G 达目标）；零售为 有单 → 高价值。</p>'+
+  '</div></div>'+
+  '<div class="grid2"><div class="card"><div class="card-h"><h2>商户加权得分</h2></div>'+
+    '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>档位</th><th>有单</th><th>养活</th></tr></thead><tbody>'+
+    '<tr><td>战略 P0</td><td class="num">3.0</td><td class="num">4.5</td></tr>'+
+    '<tr><td>战略 P1</td><td class="num">2.0</td><td class="num">3.0</td></tr>'+
+    '<tr><td>常规 P0</td><td class="num">1.5</td><td class="num">2.5</td></tr>'+
+    '<tr><td>常规 P1</td><td class="num">1.0</td><td class="num">1.5</td></tr></tbody></table></div>'+
+    '<div class="note">官方代运营 +0.5；保亭 20 家全部为「常规新签 P1」（有单 1.0 / 养活 1.5），城市分层为「反超」。</div></div>'+
+  '<div class="card"><div class="card-h"><h2>城市分层与兜底</h2></div><div class="rules">'+
+    '<p><b>分层权重</b>：战略 40% / 常规 40% / 养活 20%。</p>'+
+    '<p><b>不重复累计</b>：上月已加权商户本月不计入新签得分，除非升级到更高档（有单 → 养活、养活 → 养好），可补差计入。</p>'+
+    '<p><b>兜底</b>：FML A2+A5 覆盖率 10w+ ≥ 65% / 0-10w ≥ 50%；单区县考核池 &lt; 20 家不考核（保亭商户总数恰 20 家）。</p>'+
+    '<p><b>业务线映射</b>：登记「餐饮」↔ 系统 FML / GKA / CKA；「零售」↔ NRCKA / NROTH。</p>'+
+    '</div><div class="note warn">保亭商户总数 20 家恰在临界线上（当前入池 15 家 · 非考核池 5 家）；如再有一批转入非考核池就会接近弃考线，未匹配 BD 的归属需尽快确定。</div></div></div>'+
+  '<div class="card"><div class="card-h"><h2>BD 考核与扣罚</h2></div><div class="rules">'+
+    '<p><b>项目完成率</b>：封顶 120%；&lt; 90% 得分 × 0.8，&lt; 80% 得分 = 0；时间进度按 9/1 折算。</p>'+
+    '<p><b>城市警告</b>：小警告 BD 100 元 / 人、运营 100 元 / 人；大警告 BD 300 元 / 人、运营 200 元 / 人。</p>'+
+    '<p><b>新签奖励</b>：按「新店达标」家数计奖励（50 元 / 家），黄敏与陈春芳各 3 家 → ¥150，其余 3 位各 2 家 → ¥100。</p>'+
+  '</div></div>'+
+  '<div class="card"><div class="card-h"><h2>数据源</h2></div><div class="kv">'+
+    '<b>考核明细</b><span>新签考核明细（日 20261105）· 20 家 · 字段：加权系数 / 任务 / 单量净G</span>'+
+    '<b>登记台账</b><span>新签登记表（8 条）· 用于交叉核对漏登 / 漏考核</span>'+
+    '<b>BD 绩效</b><span>26年11月BD考核方案 · Sheet「BD绩效考核」「新签」「执行力」</span>'+
+    '<b>综合指标</b><span>11月综合指标看板 · Sheet「数据汇总」· 数据日 20261104</span>'+
+    '<b>营销 KPI</b><span>11月爆单红包考核进度-五城 · Sheet「爆单进度」「目标」</span>'+
+    '</div></div>'+
+  '</section>';
+};
+
+/* ---------- 绑定与渲染 ---------- */
+function fillRows(){
+  const list=filtered();
+  const body=document.getElementById('mBody');
+  if(!body)return;
+  body.innerHTML=list.length?list.map(merchantRow).join(''):'<tr><td colspan="9" class="mut" style="text-align:center;padding:28px">没有匹配的商户</td></tr>';
+  document.getElementById('mCount').textContent=list.length+' 家';
+  document.getElementById('mCount2').textContent='显示 '+list.length+' / '+M.length;
+}
+function bindMerchants(){
+  const segs=document.querySelectorAll('#mSeg button');
+  segs.forEach(b=>b.onclick=()=>{
+    ST.f.bucket=b.dataset.b;
+    segs.forEach(x=>x.classList.toggle('on',x===b));
+    fillRows();
+  });
+  const q=document.getElementById('fq');
+  q.oninput=e=>{ST.f.q=e.target.value;fillRows();};
+  const bd=document.getElementById('fbd');
+  bd.onchange=e=>{ST.f.bd=e.target.value;fillRows();};
+  const bl=document.getElementById('fbl');
+  bl.onchange=e=>{ST.f.bl=e.target.value;fillRows();};
+  document.querySelectorAll('#mTable th.sortable').forEach(th=>{
+    th.onclick=()=>{
+      const k=th.dataset.k;
+      ST.sort=ST.sort.k===k?{k:k,dir:-ST.sort.dir}:{k:k,dir:-1};
+      document.querySelectorAll('#mTable th.sortable .arr').forEach(a=>a.textContent='');
+      const arr=th.querySelector('.arr');
+      if(arr)arr.textContent=ST.sort.dir>0?'▲':'▼';
+      fillRows();
+    };
+  });
+  const initArr=document.querySelector('#mTable th[data-k="'+ST.sort.k+'"] .arr');
+  if(initArr)initArr.textContent=ST.sort.dir>0?'▲':'▼';
+  fillRows();
+}
+function bindBD(){
+  const segs=document.querySelectorAll('#bdSeg button');
+  segs.forEach(b=>b.onclick=()=>{
+    ST.bdPerf=b.dataset.n;
+    segs.forEach(x=>x.classList.toggle('on',x===b));
+    document.getElementById('bdPerfBody').innerHTML=perfBody();
+  });
+}
+function bindMetrics(){
+  const sel=document.getElementById('mSel');
+  if(!sel)return;
+  sel.value=ST.metric;
+  sel.onchange=e=>{ST.metric=e.target.value;document.getElementById('mChart').innerHTML=metricChart();};
+}
+function render(){
+  const hm=document.getElementById('hMer'),hp=document.getElementById('hPool');
+  if(hm)hm.textContent='商户 '+M.length+' 家';
+  if(hp)hp.textContent='入考核池 '+inPool+' 家';
+  document.getElementById('app').innerHTML=views[ST.tab]();
+  document.querySelectorAll('#tabs .tab').forEach(t=>t.classList.toggle('on',t.dataset.t===ST.tab));
+  if(ST.tab==='merchants')bindMerchants();
+  if(ST.tab==='bd')bindBD();
+  if(ST.tab==='metrics')bindMetrics();
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+document.getElementById('tabs').innerHTML=TABS.map(t=>'<div class="tab" data-t="'+t[0]+'">'+t[1]+'</div>').join('');
+document.getElementById('tabs').addEventListener('click',e=>{
+  const t=e.target.closest('.tab');
+  if(!t)return;
+  ST.tab=t.dataset.t;
+  render();
+});
+render();
+})();
+</script>
+</body>
+</html>
